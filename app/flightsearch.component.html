@@ -1,0 +1,60 @@
+<md-sidenav-layout fullscreen>
+  <md-sidenav #sidenav>
+    <md-nav-list>
+      <a md-list-item (click)="syncData()">
+        <md-icon md-list-icon>refresh</md-icon>
+        <span md-line>Aktualisieren</span>
+        <span md-line class="secondary">Daten mit dem Server abgleichen</span>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.open()">
+      <md-icon>menu</md-icon>
+    </button>
+    Your Flights
+  </md-toolbar>
+  
+  <div class="card-container">
+    <md-card *ngFor="let b of bookings">
+      <md-card-title>{{b.flug.abflugort}} - {{b.flug.zielort}}</md-card-title>
+      <md-card-content class="secondary">
+            <p>Flight-No.: {{b.flug.id}}</p>
+            <p>{{b.flug.datum.substr(0,10)}}</p>
+            <p>{{b.buchungsStatus | bookingStatus}}</p>
+      </md-card-content>
+      <md-card-actions align="end">
+        <button (click)="checkin(b)" md-button color="primary">Check in</button>
+        <button (click)="booked(b)" md-button color="primary">Check out</button>
+      </md-card-actions>
+    </md-card>
+  </div>
+  
+</md-sidenav-layout>  
+
+
+
+<!--
+<nav-bar 
+    (refreshRequested)="syncData()"></nav-bar>
+
+<div class="container">
+
+    <button (click)="upload()">Upload</button>
+
+    <div *ngFor="let b of buchungen" class="col-sm-4">
+
+        <div class="card">
+            <h2>{{b.flug.abflugort}} - {{b.flug.zielort}}</h2>
+            <p>FlugNr. {{b.flug.id}}</p>
+            <p>{{b.flug.datum.substr(0,10)}}</p>
+            <p>{{b.buchungsStatus}}</p>
+            <a class="btn btn-default" (click)="checkin(b)">Check in</a>
+            <a class="btn btn-default" (click)="booked(b)">Undo check in</a>  
+        </div>
+        
+    </div>    
+</div>
+
+
+-->

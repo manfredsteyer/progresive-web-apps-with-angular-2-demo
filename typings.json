@@ -1,0 +1,10 @@
+{
+  "name": "angular2-seed",
+  "version": false,
+  "dependencies": {},
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "hammerjs": "registry:dt/hammerjs#2.0.8+20160724063812",
+    "node": "registry:dt/node#6.0.0+20160621231320"
+  }
+}
